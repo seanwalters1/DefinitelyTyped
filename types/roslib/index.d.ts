@@ -459,4 +459,90 @@ declare namespace ROSLIB {
 			repubServiceName?: string
 		});
 	}
+		export class Transform {
+		/**
+		 * A Transform in 3-space. Values are copied into this object.
+		 *
+		 *  @constructor
+		 *  @param options - object with following keys:
+		 *   * translation - the Vector3 describing the translation
+		 *   * rotation - the ROSLIB.Quaternion describing the rotation
+		 */
+		constructor(options:{
+			translation: any,
+			rotation: any
+		});
+	}
+	export class Quaternion {
+		/**
+		 * A Quaternion.
+		 *
+		 *  @constructor
+		 *  @param options - object with following keys:
+		 *   * x - the x value
+		 *   * y - the y value
+		 *   * z - the z value
+		 *   * w - the w value
+		 */
+		constructor(options:{
+			x: number,
+			y: number,
+			z: number,
+			w: number
+		});
+		// getter
+		public x: number;
+		// getter
+		public y: number;
+		// getter
+		public z: number;
+		// getter
+		public w: number;
+	}
+	export class Vector3 {
+		/**
+		 * A 3D vector.
+		 *
+		 *  @constructor
+		 *  @param options - object with following keys:
+		 *   * x - the x value
+		 *   * y - the y value
+		 *   * z - the z value
+		 */
+		constructor(options:{
+			x: number,
+			y: number,
+			z: number
+		});
+		// getter
+		public x: number;
+		// getter
+		public y: number;
+		// getter
+		public z: number;		
+	}	
+	export class Pose {
+		/**
+		 * A Pose in 3D space. Values are copied into this object.
+		 *
+		 *  @constructor
+		 *  @param options - object with following keys:
+		 *   * position - the Vector3 describing the position
+		 *   * orientation - the ROSLIB.Quaternion describing the orientation
+		 */
+		constructor(options:{
+			position: any,
+			orientation: any
+		});
+		/**
+		 * Apply a transform against this pose.
+		 *
+		 * @param tf the transform
+		 */
+		applyTransform(tf:Transform):void;
+		// getter
+		public position:Vector3;
+		// getter
+		public orientation:Quaternion;
+	}	
 }
